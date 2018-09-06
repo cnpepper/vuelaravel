@@ -15,27 +15,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'app',
   methods:{
     foo(){
-    
-        //vuex test
-        this.$store.commit('increment')
-        console.log(this.$store.state.count)
-        //alert(1);
-        //测试一下登录
-        this.$http.post('http://homestead.test/api/login', {
-            email:'liujianjun@wangdian.cn',
-            password:'111111'
-        })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        // vuex提交登录
+        this.$store.dispatch('login')
     }
   }
 }
