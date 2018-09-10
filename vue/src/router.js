@@ -6,15 +6,35 @@ Vue.use(VueRouter)
 
 // 1. 定义 (路由) 组件。
 // 可以从其他文件 import 进来
-import Hello from './components/HelloWorld.vue'
+//import Hello from './components/HelloWorld.vue'
+import Layout from './components/Layout'
+import Login from './components/Login'
+import Home from './components/Home'
+import Control from './components/Control'
 
 // 2. 定义路由
 // 每个路由应该映射一个组件。 其中"component" 可以是
 // 通过 Vue.extend() 创建的组件构造器，
 // 或者，只是一个组件配置对象。
 // 我们晚点再讨论嵌套路由。
-const routes = [
-  { path: '/hello', component: Hello }
+const routes = [{
+    path: '/',
+    component: Login
+  },
+  {
+    path: '/app',
+    component: Layout,
+    children: [{
+        path: '/home',
+        component: Home
+      },
+      {
+        path: '/control',
+        component: Control
+      }
+    ]
+  },
+
 ]
 
 // 3. 创建 router 实例，然后传 `routes` 配置
