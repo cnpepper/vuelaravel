@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Cookies from 'js-cookie'
 Vue.use(Vuex)
 
+//mutations名称常量
+
 // 加载API接口
-import { login } from '@/api/login'
+import {
+  axUserLogin
+} from '@/api/login'
 
 const store = new Vuex.Store({
   state: {
@@ -11,19 +16,24 @@ const store = new Vuex.Store({
     token: ''
   },
   mutations: {
-    increment (state) {
-      state.count++
-    },
-    login(state,token){
-        state.token = token
-        console.log(state.token)
+    SET_TOKEN(state, token) {
+      state.token = token
     }
   },
   actions: {
-    login (context) {
-        login().then(response=>{
-            context.commit('login',response.data.success.token)
-        })
+    UserLogin(context,login_form) {
+      return new Promise((resolve, reject) => {
+        if (!Cookies.get('USER_LOGIN_TOKEN')) {
+          axUserLogin(login_form.email,login_form.password).then(response => {
+            let user_token = response.data.success.token;
+            Cookies.set('USER_LOGIN_TOKEN', user_token)
+            context.commit('SET_TOKEN', user_token)
+            resolve()
+          }).catch(error => {
+            reject(error)
+          })
+        }
+      })
     }
   }
 })

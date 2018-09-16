@@ -19,6 +19,10 @@ import Control from './components/Control'
 // 我们晚点再讨论嵌套路由。
 const routes = [{
     path: '/',
+    redirect: '/app'
+  },
+  {
+    path: '/login',
     component: Login
   },
   {

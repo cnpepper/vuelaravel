@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//test
+Route::get('/create', 'HomeController@create');
+Route::get('/push', 'HomeController@push');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+/*
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -22,7 +30,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+*/
