@@ -124,6 +124,16 @@ return [
          * Laravel-permission 
          */
         Spatie\Permission\PermissionServiceProvider::class,
+        
+        /*
+         * Laravel-cors 
+         */
+        Barryvdh\Cors\ServiceProvider::class,
+        
+        /*
+         * Laravel-debugbar 
+         */
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
@@ -178,7 +188,7 @@ return [
     */
 
     'aliases' => [
-
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

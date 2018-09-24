@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
 	    //
-	    return array('status'=>0,'msg'=>'ok','info'=>array(array('a'=>1)),);
+	    return response()->json(array('status'=>0,'msg'=>'ok','info'=>''));
     }
 
     /**

@@ -2,13 +2,13 @@
     <div>
         <el-row>
             <el-col :span="24">
-                <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect"
-                    background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" router=ture>
+                <el-menu class="el-menu-demo" mode="horizontal"
+                    background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" router="true">
                     <el-menu-item index="/home">处理中心</el-menu-item>
                     <el-submenu index="2">
                         <template slot="title">我的工作台</template>
                         <el-menu-item index="/control">控制台</el-menu-item>
-                        <el-menu-item index="2-2">选项2</el-menu-item>
+                        <el-menu-item index="/svn">SVN控制</el-menu-item>
                         <el-menu-item index="2-3">选项3</el-menu-item>
                         <el-submenu index="2-4">
                             <template slot="title">选项4</template>

@@ -17,21 +17,24 @@
 
 <script>
     export default {
-        data(){
+        data() {
             return {
-                login_form:{
-                    email:'',
-                    password:''
+                login_form: {
+                    email: '',
+                    password: ''
                 }
             }
         },
         methods: {
             onLoginSubmit() {
-                console.log(this.login_form);
                 //登录成功后跳转
-                this.$store.dispatch('UserLogin',this.login_form).then(result=>{
-                    console.log('登录成功进行跳转')
-                    this.$router.push('/')
+                this.$store.dispatch('UserLogin', this.login_form).then(result => {
+                    if (0 == result) {
+                        this.$router.push('/')
+                    }
+                    else{
+                        this.$router.push('/login')
+                    }
                 })
             }
         }
