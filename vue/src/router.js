@@ -12,6 +12,7 @@ import Login from './components/Login'
 import Home from './components/Home'
 import Control from './components/Control'
 import Svn from './components/Svn'
+import Sql from './components/Sql'
 
 // 2. 定义路由
 // 每个路由应该映射一个组件。 其中"component" 可以是
@@ -37,6 +38,10 @@ const routes = [
       {
         path: '/svn',
         component: Svn
+      },
+      {
+        path: '/sql',
+        component: Sql
       }
     ]
   },
