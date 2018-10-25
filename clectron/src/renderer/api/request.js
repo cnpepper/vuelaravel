@@ -3,7 +3,7 @@ import store from '@/store'
 
 // 创建axios实例
 const service = axios.create({
-    baseURL: 'http://homestead.test/api',
+    baseURL: 'http://admin.dev/api',
     timeout: 0
 })
 

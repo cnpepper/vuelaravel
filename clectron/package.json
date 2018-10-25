@@ -1,5 +1,5 @@
 {
-  "name": "clectron-project",
+  "name": "admin",
   "version": "0.0.1",
   "author": "",
   "description": "An electron-vue project",
@@ -17,7 +17,7 @@
     "postinstall": ""
   },
   "build": {
-    "productName": "clectron-project",
+    "productName": "内部项目开发后台",
     "appId": "com.example.yourapp",
     "directories": {
       "output": "build"

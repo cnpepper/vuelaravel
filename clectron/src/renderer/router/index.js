@@ -15,10 +15,6 @@ import Svn from '@/components/Svn'
 export default new Router({
   routes: [
     {
-      path: '*',
-      redirect: '/'
-    },
-    {
       path: '/',
       component: Login
     },

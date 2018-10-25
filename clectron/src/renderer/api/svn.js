@@ -7,3 +7,10 @@ export function asSvnUpdate(){
         method:'post',
     })
 }
+
+export function asRunDev(){
+    return request({
+        url:'/run_dev',
+        method:'post',
+    })
+}
