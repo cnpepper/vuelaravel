@@ -10,7 +10,6 @@ const service = axios.create({
 service.interceptors.request.use(
     config=> {
         // 添加token
-        console.log('gettes-token:' + store.getters.authToken)
         config.headers['Authorization'] = 'Bearer '+store.getters.authToken
         return config
     },
@@ -21,15 +20,30 @@ service.interceptors.request.use(
     }
     
 )
-/*
+
 service.interceptors.response.use(
     response=>{
-        //todo.. 处理响应信息
-        response
+        //todo..
+        console.log(response)
+        if(200 != response.status){
+            const hash = window.location.search.slice(1)
+            window.opener.location.href = window.location.origin + '/' + hash
+            window.close()
+        }
+        else{
+            if(0 != response.data.code){
+                // todo 给出警告
+            }
+            else{
+                return response
+            }
+        }
     },
     error=>{
-        error
+        console.log(error)
+        //window.location.href= 'admin.dev'
+        return error
     }
-)*/
+)
 
 export default service

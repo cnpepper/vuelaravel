@@ -6,10 +6,12 @@ Vue.use(Router)
 // 0. 如果使用模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter)
 // 1. 定义 (路由) 组件。
 // 可以从其他文件 import 进来
-import Layout from '@/components/Layout'
-import Login from '@/components/Login'
-import Home from '@/components/Home'
-import Svn from '@/components/Svn'
+import Layout from '@/views/layout/layout'
+import Login from '@/views/home/login'
+import Home from '@/views/home/home'
+import CreateSql from '@/views/control/mysql/create'
+import CheckSql from '@/views/control/mysql/check'
+import QuerySql from '@/views/control/mysql/query'
 
 // 2. 定义路由
 export default new Router({
@@ -26,9 +28,17 @@ export default new Router({
           component: Home
         },
         {
-          path: '/svn',
-          component: Svn
+          path: '/create',
+          component: CreateSql
         },
+        {
+          path: '/check',
+          component :CheckSql
+        },
+        {
+          path: '/query',
+          component :QuerySql
+        }
       ]
     },
   ]

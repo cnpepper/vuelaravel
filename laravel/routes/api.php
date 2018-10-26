@@ -24,9 +24,8 @@ $api->version('v1', function ($api) {
 
     // 需要验证的api
     $api->group(['middleware' => ['auth:api', 'cors']], function ($api) {
-        //
-        $api->post('svn_update', 'App\Http\Controllers\Api\SvnController@index'); // 使用了dingo后要用她的路由才有效
-        $api->post('test','App\Http\Controllers\Api\LoginController@test');
+        $api->post('create_sql','App\Http\Controllers\Api\Mysql\CreateController@index');
+        $api->post('query_sql','App\Http\Controllers\Api\Mysql\QueryController@index');
     });
 
 });

@@ -1,16 +1,17 @@
 //根目录加载封装过的axios类
 import request from './request.js'
 
-export function asSvnUpdate(){
+export function asCreateSql(data){
     return request({
-        url:'/svn_update',
+        url:'/create_sql',
         method:'post',
+        data
     })
 }
 
-export function asRunDev(){
+export function asQuerySql(){
     return request({
-        url:'/run_dev',
+        url:'/query_sql',
         method:'post',
     })
 }
