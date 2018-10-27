@@ -1,6 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
-
+import router from '../router'
 // 创建axios实例
 const service = axios.create({
     baseURL: 'http://admin.dev/api',
@@ -10,7 +10,7 @@ const service = axios.create({
 service.interceptors.request.use(
     config=> {
         // 添加token
-        config.headers['Authorization'] = 'Bearer '+store.getters.authToken
+        config.headers['Authorization'] = 'Bearer '+store.getters.GetToken
         return config
     },
     error=>{
@@ -25,23 +25,17 @@ service.interceptors.response.use(
     response=>{
         //todo..
         console.log(response)
-        if(200 != response.status){
-            const hash = window.location.search.slice(1)
-            window.opener.location.href = window.location.origin + '/' + hash
-            window.close()
+        
+        if(0 != response.data.code){
+            // todo 给出警告
         }
         else{
-            if(0 != response.data.code){
-                // todo 给出警告
-            }
-            else{
-                return response
-            }
+            return response
         }
     },
     error=>{
         console.log(error)
-        //window.location.href= 'admin.dev'
+        //router.push('/')
         return error
     }
 )

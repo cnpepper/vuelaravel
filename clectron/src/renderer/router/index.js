@@ -9,8 +9,10 @@ Vue.use(Router)
 import Layout from '@/views/layout/layout'
 import Login from '@/views/home/login'
 import Home from '@/views/home/home'
-import CreateSql from '@/views/control/mysql/create'
+
+// mysql 管理页面
 import CheckSql from '@/views/control/mysql/check'
+import SelectSql from '@/views/control/mysql/select'
 import QuerySql from '@/views/control/mysql/query'
 
 // 2. 定义路由
@@ -28,12 +30,12 @@ export default new Router({
           component: Home
         },
         {
-          path: '/create',
-          component: CreateSql
-        },
-        {
           path: '/check',
           component :CheckSql
+        },
+        {
+          path: '/select',
+          component :SelectSql
         },
         {
           path: '/query',

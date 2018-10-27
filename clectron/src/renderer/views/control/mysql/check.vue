@@ -2,9 +2,17 @@
     <el-container>
         <el-main>
             <el-table :data="tableData" border style="width: 100%">
-                <el-table-column fixed prop="date" label="创建人" width="150">
+                <el-table-column fixed prop="sentence" label="SQL语句" width="150">
                 </el-table-column>
-                <el-table-column prop="address" label="SQL语句" width="300">
+                <el-table-column prop="status" label="状态" width="150">
+                </el-table-column>
+                <el-table-column prop="creator" label="创建人" width="150">
+                </el-table-column>
+                <el-table-column prop="created" label="创建时间" width="150">
+                </el-table-column>
+                <el-table-column prop="check_user" label="审核人" width="150">
+                </el-table-column>
+                <el-table-column prop="check_time" label="审核时间" width="150">
                 </el-table-column>
                 <el-table-column fixed="right" label="操作" width="100">
                     <template slot-scope="scope">
@@ -18,44 +26,24 @@
 </template>
 
 <script>
+    import {
+        asQuerySql
+    } from '@/api/mysql'
     export default {
-        methods: {
-            handleClick(row) {
-                console.log(row);
-            }
-        },
-
         data() {
             return {
-                tableData: [{
-                    date: '2016-05-03',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-01',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }]
+                user_id:0,
+                tableData: []
+            }
+        },
+        created() {
+            this.getTableData()
+        },
+        methods: {
+            getTableData(){
+                asQuerySql(this.user_id).then(response => {
+                    this.tableData = response.data.result;
+                })
             }
         }
     }

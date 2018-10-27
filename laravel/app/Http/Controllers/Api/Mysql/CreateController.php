@@ -44,11 +44,24 @@ class CreateController extends Controller
 
     private function insertSql($data){
         //`sql_create_sql`
-        $sql = $data['sentence'];
+        $user_id = $data['user_id'] ?? 0;
+        if(empty($user_id)){
+            return array(
+                'code'=>-1,
+                'msg'=>'Invalid user_id',
+            );
+        }
+        $sql = $data['sentence'] ?? '';
+        if(empty($sql)){
+            return array(
+                'code'=>-1,
+                'msg'=>'Invalid sentence',
+            );
+        }
         $data = array(
             'sentence'=>$sql,
             'status'=>10,
-            'creator'=>1,
+            'creator'=>$user_id,
         );
         try{
             $db = DB::table('sql_create_sql')->insert($data);

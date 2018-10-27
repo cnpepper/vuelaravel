@@ -9,7 +9,6 @@
                         <template slot="title">工作台</template>
                         <el-submenu index="2-4">
                             <template slot="title">Mysql控制台</template>
-                            <el-menu-item index="/create">新建SQL</el-menu-item>
                             <el-menu-item index="/check">审核SQL</el-menu-item>
                             <el-menu-item index="/select">查询数据</el-menu-item>
                             <el-menu-item index="/query">SQL管理</el-menu-item>
