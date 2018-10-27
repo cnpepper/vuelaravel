@@ -1,6 +1,8 @@
 # vuelaravel
 参考大神的前端项目练习写的后台系统
 
+现在前端主要开发客户端版本
+
 clectron-project 项目是打包客户端代码
 laravel 是服务端代码
 vue 是web端代码
