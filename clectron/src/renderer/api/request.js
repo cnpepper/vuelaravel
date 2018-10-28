@@ -3,7 +3,8 @@ import store from '@/store'
 import router from '../router'
 // 创建axios实例
 const service = axios.create({
-    baseURL: 'http://admin.dev/api',
+    // baseURL: 'http://admin.dev/api', // WIN
+    baseURL: 'http://homestead.test/api', // MAC
     timeout: 0
 })
 

@@ -4,14 +4,15 @@ namespace App\Http\Controllers\Api\Mysql;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 // 模型引用
-use App\Domain\Mysql\QuerySql;
+use App\Model\Mysql;
 
 /**
- * @api {post} url/user 查询SQL申请列表
+ * @api {post} url/user 审核页面查询SQL
  *
  * @apiVersion 0.1.0
  * @apiName Nan
@@ -37,15 +38,14 @@ class QueryController extends Controller
      */
     public function index(Request $request)
     {
-        $this->m_control_name = '\Mysql\QueryController';
+        $this->m_control_name = '\Mysql\CheckQueryController';
 
         try {
             $req = $request->all();
             Log::debug($this->m_control_name,$req);
             //创建待审核的SQL语句
-            $sql = new QuerySql();
-            $user_id = Auth::id();
-            $res = $sql->Query($user_id);
+            $mysql= new Mysql();
+            $res = $mysql->Query(0);
             return $this->returnInfo(0, 'ok', $res);
         } catch (Exception $e) {
             return $this->returnInfo(-1, $e->getMessage());

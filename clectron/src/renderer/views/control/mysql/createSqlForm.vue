@@ -22,7 +22,6 @@
         name: 'createSqlForm',
         data() {
             return {
-                user_id:this.$store.state.user.user_id,
                 form: {
                     sentence:''
                 }
@@ -31,7 +30,6 @@
         methods: {
             submit() {
                 // todo .. 创建SQL语句
-                this.form.user_id = this.user_id;
                 asCreateSql(this.form).then(response => {
                     console.log(response)
                 })

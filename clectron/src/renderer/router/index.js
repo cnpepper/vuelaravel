@@ -15,6 +15,9 @@ import CheckSql from '@/views/control/mysql/check'
 import SelectSql from '@/views/control/mysql/select'
 import QuerySql from '@/views/control/mysql/query'
 
+// 测试用
+import TestItem from '@/views/test/test'
+
 // 2. 定义路由
 export default new Router({
   routes: [
@@ -40,6 +43,10 @@ export default new Router({
         {
           path: '/query',
           component :QuerySql
+        },
+        {
+          path: '/test',
+          component :TestItem
         }
       ]
     },

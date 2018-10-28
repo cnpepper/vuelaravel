@@ -32,7 +32,6 @@
     export default {
         data() {
             return {
-                user_id:0,
                 tableData: []
             }
         },
@@ -41,7 +40,7 @@
         },
         methods: {
             getTableData(){
-                asQuerySql(this.user_id).then(response => {
+                asQuerySql({}).then(response => {
                     this.tableData = response.data.result;
                 })
             }

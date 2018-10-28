@@ -46,7 +46,6 @@
         },
         data() {
             return {
-                user_id:this.$store.state.user.user_id,
                 dialogVisible: false,
                 tableData: []
             }
@@ -56,8 +55,6 @@
         },
         methods: {
             handleClick(row, event, column) {
-                //console.log(row);
-                console.log(this.$store.state.user.user_id)
             },
             handleSubmit() {
                 this.$refs.createSqlForm.submit()
@@ -65,7 +62,7 @@
                 this.dialogVisible = false
             },
             getTableData() {
-                asQuerySql(this.user_id).then(response => {
+                asQuerySql({}).then(response => {
                     this.tableData = response.data.result;
                 })
             }
