@@ -11,17 +11,21 @@
             <el-col :span="6"><el-input v-model="add_name"></el-input></el-col>
             <el-col :span="6"><el-button @click="handleAddClick">添加</el-button></el-col>
         </el-row>
+        <el-row>
+            <el-button @click="get">查看</el-button>{{user_permission}}
+        </el-row>
     </el-row>
 </template>
 
 <script>
-import { asPermissionCreate,asPermissionGive } from '@/api/permission'
+import { asPermissionCreate,asPermissionGive,asPermissionGet } from '@/api/permission'
 export default {
     data(){
         return {
             add_name:'',
             create_name:'',
-            user_id:0
+            user_id:0,
+            user_permission:''
         }
     },
     methods:{
@@ -42,6 +46,11 @@ export default {
                 console.log(response)
             })
         },
+        get(){
+            asPermissionGet({}).then(response=>{
+                this.user_permission = response.data.result
+            })
+        }
     }
 }
 </script>

@@ -29,6 +29,7 @@ $api->version('v1', function ($api) {
         $api->post('check_query_sql','App\Http\Controllers\Api\Mysql\CheckQueryController@index');
         $api->post('permission_create','App\Http\Controllers\Api\Permission\CreateController@index');
         $api->post('permission_give','App\Http\Controllers\Api\Permission\GiveController@index');
+        $api->post('permission_get','App\Http\Controllers\Api\Permission\GetController@index');
         
         $api->post('test','App\Http\Controllers\Api\TestController@index');
     });

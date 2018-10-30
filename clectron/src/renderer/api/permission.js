@@ -16,3 +16,10 @@ export function asPermissionGive(data){
         data
     })
 }
+
+export function asPermissionGet(){
+    return request({
+        url:'/permission_get',
+        method:'post'
+    })
+}

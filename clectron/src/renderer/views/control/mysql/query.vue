@@ -35,10 +35,7 @@
 </template>
 
 <script>
-    import {
-        asQuerySql
-    } from '@/api/mysql'
-
+    import {asQuerySql} from '@/api/mysql'
     import createSqlForm from './createSqlForm'
     export default {
         components: {

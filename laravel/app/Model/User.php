@@ -11,6 +11,9 @@ class User extends Authenticatable
 {
     use HasApiTokens,Notifiable,HasRoles;
 
+    // permission default guard
+    protected $guard_name = 'api';
+
     /**
      * The attributes that are mass assignable.
      *

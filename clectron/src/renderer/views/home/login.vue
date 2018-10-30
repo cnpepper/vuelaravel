@@ -44,7 +44,11 @@
         //登录成功后跳转
         this.$store.dispatch('UserLogin', this.login_form).then(result => {
           if (0 == result) {
-            this.$router.push('/app')
+            this.$store.dispatch('GetPermission').then(result=>{
+              if(0 == result){
+                this.$router.push('/app')
+              }
+            })
           } else {
             //提示失败
             this.$message.error('登录失败账号或密码不正确！')

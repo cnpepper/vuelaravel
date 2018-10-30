@@ -9,7 +9,7 @@
                         <template slot="title">工作台</template>
                         <el-submenu index="2-4">
                             <template slot="title">Mysql控制台</template>
-                            <el-menu-item index="/check">审核SQL</el-menu-item>
+                            <el-menu-item v-if="allow.CONTROL_SQL_CHECK" index="/check">审核SQL</el-menu-item>
                             <el-menu-item index="/select">查询数据</el-menu-item>
                             <el-menu-item index="/query">SQL管理</el-menu-item>
                         </el-submenu>
@@ -22,7 +22,7 @@
                     </el-submenu>
                     <el-submenu index="5">
                         <template slot="title">设置</template>
-                        <el-menu-item index="/permission">权限管理</el-menu-item>
+                        <el-menu-item v-if="allow.SYS_SET_PERMISSION" index="/permission">权限管理</el-menu-item>
                     </el-submenu>
                 </el-menu>
             </el-col>
@@ -39,8 +39,11 @@
     export default {
         data(){
             return {
-                is_router:true
+                is_router:true,
+                allow:this.$store.getters.GetPermission
             }
+        },
+        methods:{
         }
     }
 </script>

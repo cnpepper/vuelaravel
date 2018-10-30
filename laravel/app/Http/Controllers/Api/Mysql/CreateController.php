@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\Mysql;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 /**
  * @api {post} url/user 新建SQL语句
  * 
@@ -44,7 +44,7 @@ class CreateController extends Controller
 
     private function insertSql($data){
         //`sql_create_sql`
-        $user_id = $data['user_id'] ?? 0;
+        $user_id = Auth::id();
         if(empty($user_id)){
             return array(
                 'code'=>-1,
