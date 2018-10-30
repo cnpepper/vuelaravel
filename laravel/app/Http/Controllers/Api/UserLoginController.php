@@ -28,7 +28,7 @@ class UserLoginController extends Controller
                     //todo 报错！
                     abort(500,'获取token信息异常');
                 }
-                return $this->returnInfo(0, '', ['token' => $success,'user'=>Auth::id()]);
+                return $this->returnInfo(0, '', ['token' => $success]);
             } else {
                 return $this->returnInfo(401, 'Unauthorised', '');
             }

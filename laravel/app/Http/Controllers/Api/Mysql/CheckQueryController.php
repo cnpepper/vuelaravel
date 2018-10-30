@@ -28,7 +28,7 @@ use App\Domain\Mysql\QuerySql;
  *       "info": []
  *     }
  */
-class QueryController extends Controller
+class CheckQueryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -44,8 +44,7 @@ class QueryController extends Controller
             Log::debug($this->m_control_name,$req);
             //创建待审核的SQL语句
             $sql = new QuerySql();
-            $user_id = Auth::id();
-            $res = $sql->Query($user_id);
+            $res = $sql->Query(0);
             return $this->returnInfo(0, 'ok', $res);
         } catch (Exception $e) {
             return $this->returnInfo(-1, $e->getMessage());
