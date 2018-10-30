@@ -18,6 +18,7 @@
                     <el-submenu index="4">
                         <template slot="title">用户</template>
                         <el-menu-item index="/">登出</el-menu-item>
+                        <el-menu-item index="/test">测试页面</el-menu-item>
                     </el-submenu>
                 </el-menu>
             </el-col>

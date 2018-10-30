@@ -4,7 +4,6 @@ import {
 } from '@/api/userLogin'
 
 const state = {
-  user_id:0,
   token: ''
 }
 
@@ -17,9 +16,6 @@ const getters = {
 const mutations = {
   SET_TOKEN(state, token) {
     state.token = token
-  },
-  SET_USER_ID(state, user_id) {
-    state.user_id = user_id
   }
 }
 
@@ -32,10 +28,8 @@ const actions = {
         let code = response.data.code
         if (0 == code) {
           let user_token = response.data.result.token
-          let user_id = response.data.result.user
-          //Cookies.set('USER_LOGIN_TOKEN', user_token)
+          //Cookies.set('USER_LOGIN_TOKEN', user_token) 客户端先不设定cookie
           context.commit('SET_TOKEN', user_token)
-          context.commit('SET_USER_ID', user_id)
         }
         resolve(status)
       }).catch(error => {

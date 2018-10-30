@@ -9,12 +9,10 @@ export function asCreateSql(data){
     })
 }
 
-export function asQuerySql(user_id){
+export function asQuerySql(data){
     return request({
         url:'/query_sql',
         method:'post',
-        data:{
-            user_id
-        }
+        data
     })
 }
