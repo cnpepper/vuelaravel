@@ -1,12 +1,12 @@
 FORMAT: 1A
 
-# Example
+# APIDoc
 
-# Users [/users]
-用户资源标识
+# Api [/mysql]
+数据库模块
 
-## 注册用户 [POST /users]
-使用 `username` 和 `password` 注册用户。
+## 查询SQL语句 [POST /mysql/query]
+查询用户提交的SQL语句。
 
 + Parameters
     + page: (string, optional) - The page of results to view.

@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Auth;
  * 数据库模块
  *
  * @Resource("Api", uri="/mysql")
- * 
+ */
+class QueryController extends Controller
+{
+/**
  * 查询SQL语句
  *
  * 查询用户提交的SQL语句。
@@ -29,8 +32,6 @@ use Illuminate\Support\Facades\Auth;
  *      @Response(422, body={"error": {"username": {"Username is already taken."}}})
  * })
  */
-class QueryController extends Controller
-{
     public function index(Request $request)
     {
         $this->m_control_name = '\Mysql\QueryController';
