@@ -9,18 +9,15 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 /**
- * 用户资源标识
+ * 数据库模块
  *
- * @Resource("Users", uri="/users")
- */
-class QueryController extends Controller
-{
-/**
- * 注册用户
+ * @Resource("Api", uri="/mysql")
+ * 
+ * 查询SQL语句
  *
- * 使用 `username` 和 `password` 注册用户。
+ * 查询用户提交的SQL语句。
  *
- * @Post("/")
+ * @Post("/query")
  * @Versions({"v1"})
  * @Parameters({
  *      @Parameter("page", description="The page of results to view.", default=1),
@@ -32,6 +29,8 @@ class QueryController extends Controller
  *      @Response(422, body={"error": {"username": {"Username is already taken."}}})
  * })
  */
+class QueryController extends Controller
+{
     public function index(Request $request)
     {
         $this->m_control_name = '\Mysql\QueryController';
