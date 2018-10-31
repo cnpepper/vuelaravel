@@ -38,3 +38,6 @@ domain主要是参考领域设计，作为项目的业务逻辑层存在，而co
 但是当业务逻辑的量很大的时候，在跟数据库操作会很乱。所以还是把model作为数据交互层。
 真正的业务逻辑都写在业务层domain里，可以增强代码的复用，解决业务之间的耦合性还有接口跟业务冲突等问题。
 vue web端目录
+
+生成API文档的命令
+php artisan api:docs --name APIDoc --use-version v1 --output-file ./App/Http/Apidoc/readme.md
