@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-	public $m_control_name = 'BaseController';
-
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+	
 	public function __construct(){}
 
-	public function returnInfo($status=200,$message='ok',$result=''){
-		$result = ['code'=>$status,'message'=>$message,'result'=>$result];
-		Log::info($this->m_control_name,$result);
-		return response()->json($result);
+	public function returnInfo($code=0,$message='ok',$result){
+		$res = array(
+			'code'=>$code,
+			'message'=>$message,
+			'result'=>$result
+		);
+		return response()->json($res);
 	}
 }
