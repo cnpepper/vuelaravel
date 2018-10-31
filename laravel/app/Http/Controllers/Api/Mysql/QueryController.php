@@ -2,46 +2,43 @@
 
 namespace App\Http\Controllers\Api\Mysql;
 
+use App\Domain\Mysql\QuerySql;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
-// 模型引用
-use App\Domain\Mysql\QuerySql;
-
 /**
- * @api {post} url/user 查询SQL申请列表
+ * 用户资源标识
  *
- * @apiVersion 0.1.0
- * @apiName Nan
- * @apiGroup Mysql
- * @apiDescription 新建SQL语句供人审核后执行修改线上数据库
- *
- * @apiSuccess {Number} code 状态码0为成功,非0为失败
- * @apiSuccess {String} msg 错误信息
- * @apiSuccess {Object} data 返回json对象
- *
- * @apiSuccessExample {json} Response:
- *     {
- *       "status": 0,
- *       "info": []
- *     }
+ * @Resource("Users", uri="/users")
  */
 class QueryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+/**
+ * 注册用户
+ *
+ * 使用 `username` 和 `password` 注册用户。
+ *
+ * @Post("/")
+ * @Versions({"v1"})
+ * @Parameters({
+ *      @Parameter("page", description="The page of results to view.", default=1),
+ *      @Parameter("limit", description="The amount of results per page.", default=10)
+ * })
+ * @Transaction({
+ *      @Request({"username": "foo", "password": "bar"}),
+ *      @Response(200, body={"id": 10, "username": "foo"}),
+ *      @Response(422, body={"error": {"username": {"Username is already taken."}}})
+ * })
+ */
     public function index(Request $request)
     {
         $this->m_control_name = '\Mysql\QueryController';
 
         try {
             $req = $request->all();
-            Log::debug($this->m_control_name,$req);
+            Log::debug($this->m_control_name, $req);
             //创建待审核的SQL语句
             $sql = new QuerySql();
             $user_id = Auth::id();
