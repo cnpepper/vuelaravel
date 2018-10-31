@@ -15,6 +15,8 @@ import CheckSql from '@/views/control/mysql/check'
 import SelectSql from '@/views/control/mysql/select'
 import QuerySql from '@/views/control/mysql/query'
 
+// 设置模块
+import Permission from '@/views/permission'
 // 测试用
 import TestItem from '@/views/test/test'
 
@@ -47,6 +49,10 @@ export default new Router({
         {
           path: '/test',
           component :TestItem
+        },
+        {
+          path: '/permission',
+          component :Permission
         }
       ]
     },

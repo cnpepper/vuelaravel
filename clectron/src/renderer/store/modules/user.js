@@ -2,20 +2,29 @@
 import {
   axUserLogin
 } from '@/api/userLogin'
-
+import {
+  asPermissionGet
+} from '@/api/permission'
 const state = {
-  token: ''
+  token: '',
+  permission: []
 }
 
 const getters = {
   GetToken: state => {
     return state.token
+  },
+  GetPermission: state => {
+    return state.permission
   }
 }
 
 const mutations = {
   SET_TOKEN(state, token) {
     state.token = token
+  },
+  SET_PERMISSION(state, permission) {
+    state.permission = permission
   }
 }
 
@@ -31,7 +40,20 @@ const actions = {
           //Cookies.set('USER_LOGIN_TOKEN', user_token) 客户端先不设定cookie
           context.commit('SET_TOKEN', user_token)
         }
-        resolve(status)
+        resolve(code)
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  },
+  GetPermission(context) {
+    return new Promise((resolve, reject) => {
+      asPermissionGet().then(response => {
+        let code = response.data.code
+        if (0 == code) {
+          context.commit('SET_PERMISSION', response.data.result)
+        }
+        resolve(code)
       }).catch(error => {
         reject(error)
       })
