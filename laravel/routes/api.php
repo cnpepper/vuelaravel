@@ -13,42 +13,32 @@
 
 $api = app('Dingo\Api\Routing\Router');
 
+// dingo可以控制版本 但是发现好像加不了前缀
 $api->version('v1', function ($api) {
 
     // 不需要验证的api
     $api->group(['middleware' => ['cors']], function ($api) {
         //$api->post('user_register', 'App\Http\Controllers\Api\LoginController@register'); 暂时没实现
-        $api->post('user_login', 'App\Http\Controllers\Api\UserLoginController@index');
-        
+        $api->post('user_login', 'App\Http\Controllers\Api\User\UserLoginController@index'); 
     });
 
     // 需要验证的api
     $api->group(['middleware' => ['auth:api', 'cors']], function ($api) {
 
-        // 设置模块
-        $api->prefix('setting')->group(function(){
-            // 用户权限设置
-            $api->prefix('permission')->group(function(){
-                $api->post('create','App\Http\Controllers\Api\Setting\Permission\CreateController@index');
-                $api->post('give','App\Http\Controllers\Api\Setting\Permission\GiveController@index');
-                $api->post('get','App\Http\Controllers\Api\Setting\Permission\GetController@index');
-            });
-        });
+        //设置模块
+        $api->post('setting_permission_create','App\Http\Controllers\Api\Setting\Permission\CreateController@index');
+        $api->post('setting_permission_give','App\Http\Controllers\Api\Setting\Permission\GiveController@index');
+        $api->post('setting_permission_get','App\Http\Controllers\Api\Setting\Permission\GetController@index');
 
         // 工作台模块
-        $api->prefix('workspace')->group(function(){
-            $api->prefix('mysql')->group(function(){
-                $api->post('create','App\Http\Controllers\Api\WorkSpace\Mysql\CreateController@index');
-                $api->post('query','App\Http\Controllers\Api\WorkSpace\Mysql\QueryController@index');
-                $api->post('check_query','App\Http\Controllers\Api\WorkSpace\Mysql\CheckQueryController@index');
-            });
-        });
+        $api->post('workspace_mysql_create','App\Http\Controllers\Api\WorkSpace\Mysql\CreateController@index');
+        $api->post('workspace_mysql_query','App\Http\Controllers\Api\WorkSpace\Mysql\QueryController@index');
+        $api->post('workspace_mysql_check_query','App\Http\Controllers\Api\WorkSpace\Mysql\CheckQueryController@index');
 
         // 统计模块
 
         // 用户模块
         
-        $api->post('test','App\Http\Controllers\Api\TestController@index');
     });
 
 });
