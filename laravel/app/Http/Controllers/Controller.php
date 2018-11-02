@@ -13,7 +13,7 @@ class Controller extends BaseController
 	
 	public function __construct(){}
 
-	public function returnInfo($code=0,$message='ok',$result){
+	public function returnInfo($code=0,$message='ok',$result=''){
 		$res = array(
 			'code'=>$code,
 			'message'=>$message,

@@ -1,10 +1,7 @@
 // 加载API接口
-import {
-  axUserLogin
-} from '@/api/user/login'
-import {
-  asPermissionGet
-} from '@/api/permission'
+import {axUserLogin} from '@/api/user'
+import {axSettingPermissionGet} from '@/api/setting/permission'
+
 const state = {
   token: '',
   permission: []
@@ -48,7 +45,7 @@ const actions = {
   },
   GetPermission(context) {
     return new Promise((resolve, reject) => {
-      asPermissionGet().then(response => {
+      axSettingPermissionGet().then(response => {
         let code = response.data.code
         if (0 == code) {
           context.commit('SET_PERMISSION', response.data.result)

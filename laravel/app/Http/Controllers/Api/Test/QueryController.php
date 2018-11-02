@@ -24,6 +24,9 @@ class QueryController extends Controller
  * })
  */
     public function index(){
-        return $this->returnInfo(0,'ok');
+
+        
+
+        return $this->returnInfo();
     }
 }

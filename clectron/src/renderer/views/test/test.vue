@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import {asTestQuery} from '@/api/test'
+import {axTestQuery} from '@/api/test'
 export default {
     methods:{
         handleClick(){
-            asTestQuery().then(
+            axTestQuery().then(
                 response=>{
                     console.log(response)
                 }

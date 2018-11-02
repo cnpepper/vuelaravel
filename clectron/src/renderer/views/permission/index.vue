@@ -18,7 +18,11 @@
 </template>
 
 <script>
-import { asPermissionCreate,asPermissionGive,asPermissionGet } from '@/api/permission'
+import { 
+    axSettingPermissionCreate,
+    axSettingPermissionGive,
+    axSettingPermissionGet 
+} from '@/api/setting/permission'
 export default {
     data(){
         return {
