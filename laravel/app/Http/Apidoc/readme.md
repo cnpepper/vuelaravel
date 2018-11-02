@@ -2,41 +2,40 @@ FORMAT: 1A
 
 # APIDoc
 
-# Api [/mysql]
-数据库模块
+# User [/user]
+用户模块
 
-## 查询SQL语句 [POST /mysql/query]
-查询用户提交的SQL语句。
-
-+ Parameters
-    + page: (string, optional) - The page of results to view.
-        + Default: 1
-    + limit: (string, optional) - The amount of results per page.
-        + Default: 10
+## 用户登录 [POST /user/login]
+用户使用账号密码登录获取token信息。
 
 + Request (application/json)
     + Body
 
             {
-                "username": "foo",
-                "password": "bar"
+                "email": "foo",
+                "password": "1234567"
             }
 
-+ Response 200 (application/json)
++ Response 0 (application/json)
     + Body
 
             {
-                "id": 10,
-                "username": "foo"
+                "code": 0,
+                "message": "ok",
+                "result": ""
             }
 
-+ Response 422 (application/json)
+# Test [/test]
+测试模块
+
+## 测试接口 [POST /test/query]
+用来测试一些小功能。
+
++ Response 0 (application/json)
     + Body
 
             {
-                "error": {
-                    "username": [
-                        "Username is already taken."
-                    ]
-                }
+                "code": 0,
+                "message": "ok",
+                "result": ""
             }

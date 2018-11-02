@@ -3,7 +3,7 @@ import request from './request.js'
 
 export function asTest(data){
     return request({
-        url:'/test',
+        url:'/test/test',
         method:'post',
         data
     })

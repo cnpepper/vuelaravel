@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Permission;
+namespace App\Http\Controllers\Api\Setting\Permission;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

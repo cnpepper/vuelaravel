@@ -1,7 +1,7 @@
 // 加载API接口
 import {
   axUserLogin
-} from '@/api/userLogin'
+} from '@/api/user/login'
 import {
   asPermissionGet
 } from '@/api/permission'

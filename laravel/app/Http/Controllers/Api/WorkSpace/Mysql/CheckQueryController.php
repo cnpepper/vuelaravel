@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Mysql;
+namespace App\Http\Controllers\Api\WorkSpace\Mysql;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 // 模型引用
-use App\Domain\Mysql\QuerySql;
+use App\Domain\WokeSpace\Mysql\QuerySql;
 
 /**
  * @api {post} url/user 查询SQL申请列表
