@@ -1,5 +1,5 @@
 <?php
-namespace App\Domain\Mysql;
+namespace App\Domain\WorkSpace\Sql;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;

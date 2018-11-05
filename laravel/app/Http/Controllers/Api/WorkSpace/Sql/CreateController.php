@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\WorkSpace\Mysql;
+namespace App\Http\Controllers\Api\WorkSpace\Sql;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

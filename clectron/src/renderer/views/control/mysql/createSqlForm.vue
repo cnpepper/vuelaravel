@@ -17,13 +17,14 @@
 <script>
     import {
         asCreateSql
-    } from '@/api/mysql'
+    } from '@/api/workspace/sql'
     export default {
         name: 'createSqlForm',
+        props:['data'],
         data() {
             return {
                 form: {
-                    sentence:''
+                    sentence:this.data
                 }
             }
         },

@@ -50,12 +50,12 @@ $api->version('v1', function ($api) {
          */
         $api->group(['prefix'=>'workspace'],function($api){
             /**
-             * task 任务接口
+             * sql 工作接口
              */
-            $api->group(['prefix'=>'task'],function($api){
-                $api->post('create','App\Http\Controllers\Api\WorkSpace\Mysql\CreateController@index');
-                $api->post('query','App\Http\Controllers\Api\WorkSpace\Mysql\QueryController@index');
-                $api->post('check_query','App\Http\Controllers\Api\WorkSpace\Mysql\CheckQueryController@index');
+            $api->group(['prefix'=>'sql'],function($api){
+                $api->post('create','App\Http\Controllers\Api\WorkSpace\Sql\CreateController@index');
+                $api->post('query','App\Http\Controllers\Api\WorkSpace\Sql\QueryController@index');
+                $api->post('check_query','App\Http\Controllers\Api\WorkSpace\Sql\CheckQueryController@index');
             });
         });
         /**

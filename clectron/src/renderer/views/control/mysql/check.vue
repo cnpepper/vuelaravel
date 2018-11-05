@@ -28,7 +28,7 @@
 <script>
     import {
         asQuerySql
-    } from '@/api/mysql'
+    } from '@/api/workspace/sql'
     export default {
         data() {
             return {

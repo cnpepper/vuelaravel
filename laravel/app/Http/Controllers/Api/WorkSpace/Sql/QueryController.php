@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Api\WorkSpace\Mysql;
+namespace App\Http\Controllers\Api\WorkSpace\Sql;
 
-use App\Domain\Mysql\QuerySql;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+
+// 模型引用
+use App\Domain\WorkSpace\Sql\QuerySql;
 
 class QueryController extends Controller
 {
